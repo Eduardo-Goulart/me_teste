@@ -232,14 +232,13 @@ def main():
         host = "localhost",
         user = "root",
         passwd = "",
-        charset='utf8mb4'
     )
     
     cursor = db.cursor()
     
-    cursor.execute("USE me_database")
-    
     database.create_database()
+    
+    cursor.execute("USE me_database")
     
     etl(cursor)
     

@@ -6,7 +6,6 @@ def create_database():
         host = "localhost",
         user = "root",
         passwd = "",
-        charset='utf8mb4'
     )
     cursor = database.cursor()
     cursor.execute("DROP DATABASE IF EXISTS me_database")
