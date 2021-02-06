@@ -5,13 +5,21 @@
 conda env create -f environment.yml
 ```
 
-- Altere as credenciais do banco de dados conforme suas configurações
+- Altere as credenciais do banco de dados conforme suas configurações no arquivo "database.py" 
 ```
     database = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        passwd = "",
-        charset='utf8mb4'
+        passwd = ""
+    )
+```
+
+- Altere as credenciais do banco de dados conforme suas configurações no arquivo "etl.py"
+```
+    database = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        passwd = ""
     )
 ```
 
