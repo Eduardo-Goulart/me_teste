@@ -228,13 +228,13 @@ def create_reports(cursor):
     df_avgs = pd.DataFrame.from_dict(data).rename(columns={0: "service_id", 1: "service_name", 2: "proxy_avg", 3: "kong_avg", 4: "request_avg"}).to_csv('latencies_avgs.csv', index=False)
     
 def main():
-    db = mysql.connector.connect(
+    database = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        passwd = "",
+        passwd = ""
     )
     
-    cursor = db.cursor()
+    cursor = database.cursor()
     
     database.create_database()
     

@@ -5,7 +5,7 @@ def create_database():
     database = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        passwd = "",
+        passwd = ""
     )
     cursor = database.cursor()
     cursor.execute("DROP DATABASE IF EXISTS me_database")
