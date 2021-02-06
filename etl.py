@@ -217,12 +217,12 @@ def create_reports(cursor):
     
     df_req_consumer = pd.DataFrame.from_dict(data).rename(columns={0: 'consumer_id_uuid', 1: 'total'}).to_csv('req_consumer.csv', index=False)
     
-    cursor.execute("SELECT service_id, service.name, count(req_id) FROM request INNER JOIN service ON service.id = request.service_id GROUP BY service.name")
+    cursor.execute("SELECT service_id, service.name, count(req_id) FROM request INNER JOIN service ON service.id = request.service_id GROUP BY service.name, service_id")
     data = cursor.fetchall()
     
     df_req_services = pd.DataFrame.from_dict(data).rename(columns={0: 'service_id', 1: 'service_name', 2: 'total'}).to_csv('req_services.csv', index=False)
     
-    cursor.execute("SELECT service_id, service.name, AVG(proxy), AVG(kong), AVG(request) FROM latencies INNER JOIN service ON service.id = latencies.service_id GROUP BY service_id")
+    cursor.execute("SELECT service_id, service.name, AVG(proxy), AVG(kong), AVG(request) FROM latencies INNER JOIN service ON service.id = latencies.service_id GROUP BY service_id, service.name")
     data = cursor.fetchall()
     
     df_avgs = pd.DataFrame.from_dict(data).rename(columns={0: "service_id", 1: "service_name", 2: "proxy_avg", 3: "kong_avg", 4: "request_avg"}).to_csv('latencies_avgs.csv', index=False)
