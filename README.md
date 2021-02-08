@@ -22,6 +22,6 @@ conda env create -f environment.yml
         passwd = ""
     )
 ```
-
+- Obs.: Em razão do tamanho do arquivo, o "logs.txt" não está no repositório.
 - Execute o arquivo "etl.py"
 - O script criará o banco de dados, tabelas, inserir os dados e gerar os relatórios em ".csv"
